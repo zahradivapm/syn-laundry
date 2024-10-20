@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/beranda_page.dart';
+import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
 class LoginPage extends StatelessWidget {
@@ -101,7 +103,12 @@ class LoginPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BerandaPage()),
+                      );
+                    },
                     child: Text(
                       "Masuk",
                       style: TextStyle(
@@ -112,6 +119,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+
+          SizedBox(
+            height: 10,
           ),
 
           // baris 4 : BELUM PUNYA AKUN?
@@ -125,12 +136,20 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 width: 2,
               ),
-              Text(
-                "Daftar",
-                style: greenTextStyle.copyWith(
-                  fontSize: 16,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RegisterPage()),
+                  );
+                },
+                child: Text(
+                  "Daftar",
+                  style: greenTextStyle.copyWith(
+                    fontSize: 16,
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ],

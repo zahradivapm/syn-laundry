@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/beranda_page.dart';
+import 'package:syn_laundry/pages/login_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -138,7 +140,12 @@ class RegisterPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BerandaPage()),
+                      );
+                    },
                     child: Text(
                       "Daftar",
                       style: TextStyle(
@@ -165,12 +172,21 @@ class RegisterPage extends StatelessWidget {
               SizedBox(
                 width: 2,
               ),
-              Text(
-                "Login",
-                style: greenTextStyle.copyWith(
-                  fontSize: 16,
+              GestureDetector(
+                onTap: () {
+                  // Navigasi ke halaman Login
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                child: Text(
+                  "Login",
+                  style: greenTextStyle.copyWith(
+                    fontSize: 16,
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ],
