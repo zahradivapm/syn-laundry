@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syn_laundry/pages/beranda_page.dart';
+import 'package:syn_laundry/pages/landing_page.dart';
 import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
 
@@ -106,7 +107,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => BerandaPage()),
+                        MaterialPageRoute(builder: (context) => LandingPage()),
                       );
                     },
                     child: Text(
