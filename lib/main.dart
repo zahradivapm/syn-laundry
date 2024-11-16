@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syn_laundry/pages/beranda_page.dart';
+import 'package:syn_laundry/pages/info_cucian_page.dart';
+import 'package:syn_laundry/pages/konfirmasi_page.dart';
 import 'package:syn_laundry/pages/landing_page.dart';
 import 'package:syn_laundry/pages/list_order_page.dart';
 import 'package:syn_laundry/pages/login_page.dart';
@@ -9,6 +11,7 @@ import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/pages/splash_page.dart';
 import 'package:syn_laundry/pages/empty_page.dart';
 import 'package:syn_laundry/pages/succes_page.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(

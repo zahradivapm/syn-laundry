@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/controllers/auth_controller.dart';
 import 'package:syn_laundry/pages/beranda_page.dart';
 import 'package:syn_laundry/pages/landing_page.dart';
 import 'package:syn_laundry/pages/register_page.dart';
 import 'package:syn_laundry/themes/themes.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    //panggil controller auth
+    final authC = Get.put(AuthController());
+
     return Scaffold(
       body: ListView(
         children: [
@@ -34,6 +39,7 @@ class LoginPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
+                  controller: authC.email,
                   // maxLines: 4,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -57,13 +63,11 @@ class LoginPage extends StatelessWidget {
                   height: 37,
                 ),
                 TextFormField(
+                  controller: authC.password,
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    suffix: Image.asset(
-                      'assets/ic-eye.png',
-                      width: 20,
-                    ),
+                    suffixIcon: Image.asset('assets/ic-eye.png'),
                     hintText: "Masukkan Password",
                     hintStyle: secondaryTextStyle,
                     enabledBorder: OutlineInputBorder(
@@ -105,10 +109,8 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LandingPage()),
-                      );
+                      //Navigator.push(context,MaterialPageRoute(builder: (context) => LandingPage()));
+                      authC.login();
                     },
                     child: Text(
                       "Masuk",
@@ -121,11 +123,9 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-
           SizedBox(
-            height: 10,
+            height: 20,
           ),
-
           // baris 4 : BELUM PUNYA AKUN?
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -137,12 +137,10 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 width: 2,
               ),
-              GestureDetector(
+              InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()),
-                  );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => RegisterPage()));
                 },
                 child: Text(
                   "Daftar",
