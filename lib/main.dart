@@ -12,8 +12,14 @@ import 'package:syn_laundry/pages/splash_page.dart';
 import 'package:syn_laundry/pages/empty_page.dart';
 import 'package:syn_laundry/pages/succes_page.dart';
 import 'package:get/get.dart';
+import 'package:sp_util/sp_util.dart';
 
-void main() {
+//konfig SpUtil agar bisa dipakai
+//tambahkan async pada void main() {}
+//tambahkan WidgetsFlutterBinding.ensureInitialized(); dan await SpUtil.getInstance();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SpUtil.getInstance();
   runApp(const MyApp());
 }
 
@@ -23,6 +29,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //krn menggunakan package get, maka yang tadinya MaterialApp di ubah menjadi getMaterial App
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

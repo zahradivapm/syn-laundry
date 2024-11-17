@@ -1,6 +1,8 @@
 import 'dart:async';
-
+import 'package:get/get.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:flutter/material.dart';
+import 'package:syn_laundry/pages/landing_page.dart';
 import 'package:syn_laundry/pages/login_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -23,9 +25,13 @@ class _SplashPageState extends State<SplashPage> {
   //fungsi berpindah halaman setelah beberapa detik
   void movinPage() {
     Timer(Duration(seconds: 2), () {
-      //panggil fungsi navigator untuk pindah halamaman
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+      if (SpUtil.getString("email") == "") {
+        //panggil fungsi navigator untuk pindah halamaman
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => LoginPage()));
+      } else {
+        Get.offAll(LandingPage());
+      }
     });
   }
 
